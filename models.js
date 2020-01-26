@@ -121,6 +121,7 @@ dbModel.prototype = {
     })
   },
   createIndex: function(indexName) {
+    var fields = this.indexes[indexName] || indexName
     return this.kninky.k.schema.alterTable(this.tableName, function(table) {
       table.index(fields)
     }).then(function passed() {
